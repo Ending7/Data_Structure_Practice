@@ -1,0 +1,2 @@
+git subtree add --prefix=5MOK https://github.com/Ending7/5MOK.git main
+git subtree add --prefix=CMove https://github.com/Ending7/CMove.git main
