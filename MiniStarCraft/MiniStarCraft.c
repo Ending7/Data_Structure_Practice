@@ -1,11 +1,14 @@
 #include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+#include <string.h>
 
 #define ROW 20
 #define COLUMN 40
 #define OBJMAX 100
 
 int Field[ROW][COLUMN] = { 0 };
-int UnitId = 6;
+int UnitId = 20;
 
 void Insert(); // 내가 생성한 유닛을 필드에 생성한다.
 void Display(); // 필드에 유닛을 보여준다.
@@ -29,8 +32,8 @@ typedef struct unit
 
 }Unit;
 
-Unit unit[OBJMAX] = 
-{ 
+Unit unit[OBJMAX] =
+{
 	{1,1,19,39,"히드라(H)",50,0,3,5,26,0,1,1},
 	{2,1,18,39,"히드라(H)",50,0,3,5,26,0,1,1},
 	{3,2,17,39,"퀸(Q)",70,150,6,15,1000,45,1,2},
@@ -64,9 +67,30 @@ Unit unit[OBJMAX] =
 
 int main()
 {
+	char num;
 	Insert();
+	while (1)
+	{
+		system("cls");
+		Display();
+		printf("[명령어 입력]\n");
+		printf("[1.Produce q/Q.Quit]\n");
+		scanf_s(" %c", &num);
 
-	Display();
+		if ((num == '1') || (num == 'q') || (num == 'Q'))
+		{
+			switch (num)
+			{
+			case '1':
+				Produce();
+				break;
+
+			case 'q':
+			case 'Q':
+				return 0;
+			}
+		}
+	}
 }
 
 void Insert()
@@ -88,8 +112,10 @@ void Insert()
 
 void Display()
 {
-	int i, j, k, m_id, m_type;
+	int i, j, k, m_id, m_type = 0;
+	int ch;
 
+	system("cls");
 	for (i = 0; i < ROW; i++)
 	{
 		for (j = 0; j < COLUMN; j++) // 필드에 유닛이 있나 훑어본다
@@ -125,5 +151,164 @@ void Display()
 				printf(" ");
 		}
 		printf("\n");
+	}
+	printf("\n");
+
+	return 0;
+}
+
+void Produce()
+{
+	int i, index;
+	int m_x, m_y;
+	char ch;
+
+	while (1)
+	{
+		system("cls");
+		printf("[유닛을 고르시오]\n");
+		printf("[1.히드라 2.퀸 3.디파일러 4.마린 5.탱크 6.베슬 q/Q.Quit]\n");
+		scanf_s(" %c", &ch);
+
+		if ((ch >= '1') && (ch <= '6'))
+		{
+			printf("좌표를 입력하시오: ");
+			while (1) // 올바른 좌표인지 검사
+			{
+				scanf_s("%d %d", &m_x, &m_y);
+				if (((m_x >= 0) && (m_x < 20)) && ((m_y >= 0) && (m_y < 40)) && (Field[m_x][m_y] == 0))
+					break;
+				else
+					printf("올바르지 않은 좌표");
+			}
+
+			for (i = 0; i < OBJMAX; i++) // id가 0인 index 색출해내기
+			{
+				if (unit[i].ID == 0)
+				{
+					index = i;
+					break;
+				}
+			}
+
+			switch (ch)
+			{
+			case '1':
+				//{1,"히드라(H)", 50, 0, 3, 5, 25, 0, 1, 1}
+				UnitId++;
+				unit[index].ID = UnitId;
+				unit[index].Type = 1;
+				unit[index].x = m_x;
+				unit[index].y = m_y;
+				strcpy_s(unit[index].Name, 10, "히드라(H)");
+				unit[index].HP = 30;
+				unit[index].MP = 0;
+				unit[index].Mlength = 3;
+				unit[index].Alength = 5;
+				unit[index].Damage = 25;
+				unit[index].UseMp = 0;
+				unit[index].Arange = 1;
+				unit[index].Cost = 1;
+				Insert();
+				return 0;
+
+			case '2':
+				//{2,"퀸(Q)",70,150,6,15,1000,45,1,2}
+				UnitId++;
+				unit[index].ID = UnitId;
+				unit[index].Type = 2;
+				unit[index].x = m_x;
+				unit[index].y = m_y;
+				strcpy_s(unit[index].Name, 6, "퀸(Q)");
+				unit[index].HP = 70;
+				unit[index].MP = 150;
+				unit[index].Mlength = 6;
+				unit[index].Alength = 15;
+				unit[index].Damage = 1000;
+				unit[index].UseMp = 45;
+				unit[index].Arange = 1;
+				unit[index].Cost = 2;
+				Insert();
+				return 0;
+
+			case '3':
+
+				//{3,"디파일러(D)",60,200,2,10,1,60,5,2}
+
+				UnitId++;
+				unit[index].ID = UnitId;
+				unit[index].Type = 3;
+				unit[index].x = m_x;
+				unit[index].y = m_y;
+				strcpy_s(unit[index].Name, 12, "디파일러(D)");
+				unit[index].HP = 60;
+				unit[index].MP = 200;
+				unit[index].Mlength = 2;
+				unit[index].Alength = 10;
+				unit[index].Damage = 1;
+				unit[index].UseMp = 60;
+				unit[index].Arange = 5;
+				unit[index].Cost = 2;
+				Insert();
+				return 0;
+
+			case '4':
+				//{ 4,"마린(M)",30,0,3,4,20,0,1,1 }
+				UnitId++;
+				unit[index].ID = UnitId;
+				unit[index].Type = 4;
+				unit[index].x = m_x;
+				unit[index].y = m_y;
+				strcpy_s(unit[index].Name, 8, "마린(M)");
+				unit[index].HP = 30;
+				unit[index].MP = 0;
+				unit[index].Mlength = 3;
+				unit[index].Alength = 4;
+				unit[index].Damage = 20;
+				unit[index].UseMp = 0;
+				unit[index].Arange = 1;
+				unit[index].Cost = 1;
+				Insert();
+				return 0;
+			case '5':
+				//{5,"탱크(T)",120,0,4,17,40,0,1,2},
+				UnitId++;
+				unit[index].ID = UnitId;
+				unit[index].Type = 5;
+				unit[index].x = m_x;
+				unit[index].y = m_y;
+				strcpy_s(unit[index].Name, 8, "탱크(T)");
+				unit[index].HP = 120;
+				unit[index].MP = 0;
+				unit[index].Mlength = 4;
+				unit[index].Alength = 17;
+				unit[index].Damage = 40;
+				unit[index].UseMp = 0;
+				unit[index].Arange = 1;
+				unit[index].Cost = 2;
+				Insert();
+				return 0;
+			case '6':
+				//{ 6,"베슬(V)",80,140,5,12,50,35,3,2}
+				UnitId++;
+				unit[index].ID = UnitId;
+				unit[index].Type = 6;
+				unit[index].x = m_x;
+				unit[index].y = m_y;
+				strcpy_s(unit[index].Name, 8, "베슬(V)");
+				unit[index].HP = 80;
+				unit[index].MP = 140;
+				unit[index].Mlength = 5;
+				unit[index].Alength = 12;
+				unit[index].Damage = 50;
+				unit[index].UseMp = 35;
+				unit[index].Arange = 3;
+				unit[index].Cost = 2;
+				Insert();
+				return 0;
+			}
+		}
+		else if (ch == 'q' || ch == 'Q')
+			return 0;
 	}
 }
