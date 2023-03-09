@@ -13,6 +13,7 @@ int UnitId = 20;
 void Insert(); // 내가 생성한 유닛을 필드에 생성한다.
 void Display(); // 필드에 유닛을 보여준다.
 void Produce(); // 유닛을 생성한다.
+void Destroy(); // 유닛을 삭제한다.
 
 typedef struct unit
 {
@@ -74,15 +75,19 @@ int main()
 		system("cls");
 		Display();
 		printf("[명령어 입력]\n");
-		printf("[1.Produce q/Q.Quit]\n");
+		printf("[1.Produce 2.Destroy q/Q.Quit]\n");
 		scanf_s(" %c", &num);
 
-		if ((num == '1') || (num == 'q') || (num == 'Q'))
+		if (((num >= '1') && (num <='2')) || (num == 'q') || (num == 'Q'))
 		{
 			switch (num)
 			{
 			case '1':
 				Produce();
+				break;
+
+			case '2':
+				Destroy();
 				break;
 
 			case 'q':
@@ -310,5 +315,54 @@ void Produce()
 		}
 		else if (ch == 'q' || ch == 'Q')
 			return 0;
+	}
+}
+
+void Destroy()
+{
+	int x, y, i;
+	int m_id;
+	char ch;
+	system("cls");
+	printf("삭제하고 싶은 유닛이 있는 좌표 입력\n");
+	while (1)
+	{
+		scanf_s("%d %d", &x, &y);
+		if (((x >= 0) && (x < 20)) && ((y >= 0) && (y < 40))) //올바른 좌표 입력 시
+		{
+			printf("계속 진행하시겠습니까? y/n "); //확인하고
+			while (1)
+			{
+				scanf_s(" %c", &ch);
+				if (ch == 'y')
+					break; 
+				if (ch == 'n')
+					return 0;
+			}
+			break; // 함수 이어서 진행
+		}
+		else //잘못된 좌표 입력 시 반복
+			printf("올바른 좌표 입력");
+	}
+
+	m_id = Field[x][y]; //아이디 찾고
+	for (i = 0; i < OBJMAX; i++)
+	{
+		if (m_id == unit[i].ID) //아이디 찾으면
+		{/*ID 빼고 나머지 값들 0으로 초기화한다.*/
+			unit[i].Type = 0;
+			unit[i].x = 0;
+			unit[i].y = 0;
+			strcpy_s(unit[i].Name, 1,"");
+			unit[i].HP = 0;
+			unit[i].MP = 0;
+			unit[i].Mlength = 0;
+			unit[i].Alength = 0;
+			unit[i].Damage = 0;
+			unit[i].UseMp = 0;
+			unit[i].Arange = 0;
+			unit[i].Cost = 0;
+			Field[x][y] = 0; //필드값을 0으로 다시 초기화해준다.
+		}
 	}
 }
