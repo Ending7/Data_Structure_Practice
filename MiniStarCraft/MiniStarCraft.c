@@ -14,6 +14,7 @@ void Insert(); // 내가 생성한 유닛을 필드에 생성한다.
 void Display(); // 필드에 유닛을 보여준다.
 void Produce(); // 유닛을 생성한다.
 void Destroy(); // 유닛을 삭제한다.
+void Select(); // 해당 좌표의 유닛 정보를 출력한다.
 
 typedef struct unit
 {
@@ -75,10 +76,10 @@ int main()
 		system("cls");
 		Display();
 		printf("[명령어 입력]\n");
-		printf("[1.Produce 2.Destroy q/Q.Quit]\n");
+		printf("[1.Produce 2.Destroy 3.Select q/Q.Quit]\n");
 		scanf_s(" %c", &num);
 
-		if (((num >= '1') && (num <='2')) || (num == 'q') || (num == 'Q'))
+		if (((num >= '1') && (num <='3')) || (num == 'q') || (num == 'Q'))
 		{
 			switch (num)
 			{
@@ -88,6 +89,10 @@ int main()
 
 			case '2':
 				Destroy();
+				break;
+
+			case '3':
+				Select();
 				break;
 
 			case 'q':
@@ -364,5 +369,58 @@ void Destroy()
 			unit[i].Cost = 0;
 			Field[x][y] = 0; //필드값을 0으로 다시 초기화해준다.
 		}
+	}
+}
+
+void Select()
+{
+	system("cls");
+	int x, y, m_id,i;
+	int ch;
+	printf("좌표를 입력하시오: ");
+
+	scanf_s("%d %d", &x, &y);
+	while (1)
+	{
+		if (((x >= 0) && (x < 20)) && ((y >= 0) && (y < 40)))
+		{
+			if (Field[x][y] == 0)
+			{
+				printf("해당 위치에는 유닛이 존재하지 않습니다.");
+				Sleep(2000);
+				return 0;
+			}
+			else
+			{
+				m_id = Field[x][y]; // 아이디 복사
+				break;
+			}
+		}
+		else
+		{
+			printf("좌표의 범위를 벗어났습니다.");
+			Sleep(2000);
+			return 0;
+		}
+	}
+
+	for (i = 0; i < OBJMAX; i++) // 해당 아이디에 맞는 유닛을 찾는다
+	{
+		if (m_id == unit[i].ID)
+		{
+			printf("ID: %d\n", unit[i].ID);
+			printf("이름: %s\n", unit[i].Name);
+			printf("HP: %d\n", unit[i].HP);
+			printf("MP: %d\n", unit[i].MP);
+			printf("좌표(x,y): (%d,%d)\n", unit[i].x, unit[i].y);
+			break;
+		}
+	}
+	
+	while (1)
+	{
+		printf("Press Enter...");
+		if ((ch = _getch()) == 13)
+			return 0;
 	}
 }
