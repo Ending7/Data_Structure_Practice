@@ -15,6 +15,7 @@ void Display(); // 필드에 유닛을 보여준다.
 void Produce(); // 유닛을 생성한다.
 void Destroy(); // 유닛을 삭제한다.
 void Select(); // 해당 좌표의 유닛 정보를 출력한다.
+void SelectAll(); //좌표 두개 입력받고 그 범위의 유닛 정보 전부 출력
 
 typedef struct unit
 {
@@ -76,10 +77,10 @@ int main()
 		system("cls");
 		Display();
 		printf("[명령어 입력]\n");
-		printf("[1.Produce 2.Destroy 3.Select q/Q.Quit]\n");
+		printf("[1.Produce 2.Destroy 3.Select 4.Select All q/Q.Quit]\n");
 		scanf_s(" %c", &num);
 
-		if (((num >= '1') && (num <='3')) || (num == 'q') || (num == 'Q'))
+		if (((num >= '1') && (num <= '4')) || (num == 'q') || (num == 'Q'))
 		{
 			switch (num)
 			{
@@ -93,6 +94,10 @@ int main()
 
 			case '3':
 				Select();
+				break;
+
+			case '4':
+				SelectAll();
 				break;
 
 			case 'q':
@@ -189,7 +194,11 @@ void Produce()
 				if (((m_x >= 0) && (m_x < 20)) && ((m_y >= 0) && (m_y < 40)) && (Field[m_x][m_y] == 0))
 					break;
 				else
+				{
 					printf("올바르지 않은 좌표");
+					Sleep(2000);
+					return 0;
+				}
 			}
 
 			for (i = 0; i < OBJMAX; i++) // id가 0인 index 색출해내기
@@ -340,7 +349,7 @@ void Destroy()
 			{
 				scanf_s(" %c", &ch);
 				if (ch == 'y')
-					break; 
+					break;
 				if (ch == 'n')
 					return 0;
 			}
@@ -358,7 +367,7 @@ void Destroy()
 			unit[i].Type = 0;
 			unit[i].x = 0;
 			unit[i].y = 0;
-			strcpy_s(unit[i].Name, 1,"");
+			strcpy_s(unit[i].Name, 1, "");
 			unit[i].HP = 0;
 			unit[i].MP = 0;
 			unit[i].Mlength = 0;
@@ -375,7 +384,7 @@ void Destroy()
 void Select()
 {
 	system("cls");
-	int x, y, m_id,i;
+	int x, y, m_id, i;
 	int ch;
 	printf("좌표를 입력하시오: ");
 
@@ -416,11 +425,69 @@ void Select()
 			break;
 		}
 	}
-	
+
 	while (1)
 	{
 		printf("Press Enter...");
 		if ((ch = _getch()) == 13)
 			return 0;
 	}
+}
+
+void SelectAll()
+{
+	int x1, x2, y1, y2;
+	int i, j,k;
+	int m_id;
+	int ch;
+	while (1) // 좌표 열외처리
+	{
+		system("cls");
+		printf("x1, y1의 좌표를 입력하시오: ");
+		scanf_s("%d %d", &x1, &y1);
+		if (((x1 >= 0) && (x1 < 20)) && ((y1 >= 0) && (y1 < 40)))
+		{
+			
+			while (1)
+			{
+				system("cls");
+				printf("x2, y2의 좌표를 입력하시오: ");
+				scanf_s("%d %d", &x2, &y2);
+				if (((x2 >= 0) && (x2 < 20)) && ((y2 >= 0) && (y2 < 40)))
+					break;
+			}
+			break;
+		}
+	}	
+	
+	for (i = x1; i <= x2; i++)
+	{
+		for (j = y1; j <= y2; j++)
+		{
+			if (Field[i][j] != 0)
+			{
+				m_id = Field[i][j];
+				for (k = 0; k < OBJMAX; k++)
+				{
+					if (m_id == unit[k].ID)
+					{
+						printf("ID: %d\n", unit[k].ID);
+						printf("이름: %s\n", unit[k].Name);
+						printf("HP: %d\n", unit[k].HP);
+						printf("MP: %d\n", unit[k].MP);
+						printf("좌표(x,y): (%d,%d)\n", unit[k].x, unit[k].y);
+						break;
+					}
+				}
+			} // 까지 if절
+		} // 2번째 for문	
+	}// 1번째 for문
+
+	while (1)
+	{
+		printf("Press Enter...");
+		if ((ch = _getch()) == 13)
+			return 0;
+	}
+	
 }
