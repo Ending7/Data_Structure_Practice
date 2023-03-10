@@ -1,29 +1,30 @@
 ﻿  MiniStarCraft.c
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(81,11): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(81,11): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(81,11): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%c'에 필요합니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(81,11): message : 이 인수는 버퍼 크기로 사용됩니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(172,10): warning C4098: 'Display': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(131,6): warning C4101: 'ch' :참조되지 않은 지역 변수입니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(186,11): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(186,11): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(186,11): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%c'에 필요합니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(186,11): message : 이 인수는 버퍼 크기로 사용됩니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(200,14): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(232,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(251,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(272,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(291,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(309,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(327,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(331,12): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(350,13): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(350,13): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(350,13): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%c'에 필요합니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(350,13): message : 이 인수는 버퍼 크기로 사용됩니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(354,14): warning C4098: 'Destroy': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(400,13): warning C4098: 'Select': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(412,12): warning C4098: 'Select': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(433,12): warning C4098: 'Select': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(490,12): warning C4098: 'SelectAll': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(82,11): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(82,11): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(82,11): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%c'에 필요합니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(82,11): message : 이 인수는 버퍼 크기로 사용됩니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(175,10): warning C4098: 'Display': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(134,6): warning C4101: 'ch' :참조되지 않은 지역 변수입니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(189,11): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(189,11): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(189,11): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%c'에 필요합니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(189,11): message : 이 인수는 버퍼 크기로 사용됩니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(203,14): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(235,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(254,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(275,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(294,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(312,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(330,13): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(334,12): warning C4098: 'Produce': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(353,13): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(353,13): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(353,13): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%c'에 필요합니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(353,13): message : 이 인수는 버퍼 크기로 사용됩니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(357,14): warning C4098: 'Destroy': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(403,13): warning C4098: 'Select': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(415,12): warning C4098: 'Select': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(436,12): warning C4098: 'Select': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(493,12): warning C4098: 'SelectAll': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\MiniStarCraft.c(520,12): warning C4098: 'SortByID': 'void' 함수에서 값을 반환하고 있습니다.
   MiniStarCraft.vcxproj -> C:\Users\jang2\Desktop\실습\Data_Structure_Practice\MiniStarCraft\x64\Debug\MiniStarCraft.exe

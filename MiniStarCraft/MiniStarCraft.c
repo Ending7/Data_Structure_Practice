@@ -16,6 +16,7 @@ void Produce(); // 유닛을 생성한다.
 void Destroy(); // 유닛을 삭제한다.
 void Select(); // 해당 좌표의 유닛 정보를 출력한다.
 void SelectAll(); //좌표 두개 입력받고 그 범위의 유닛 정보 전부 출력
+void SortByID();
 
 typedef struct unit
 {
@@ -77,10 +78,10 @@ int main()
 		system("cls");
 		Display();
 		printf("[명령어 입력]\n");
-		printf("[1.Produce 2.Destroy 3.Select 4.Select All q/Q.Quit]\n");
+		printf("[1.Produce 2.Destroy 3.Select 4.Select All 5.SoltByID q/Q.Quit]\n");
 		scanf_s(" %c", &num);
 
-		if (((num >= '1') && (num <= '4')) || (num == 'q') || (num == 'Q'))
+		if (((num >= '1') && (num <= '5')) || (num == 'q') || (num == 'Q'))
 		{
 			switch (num)
 			{
@@ -99,7 +100,9 @@ int main()
 			case '4':
 				SelectAll();
 				break;
-
+			case '5':
+				SortByID();
+				break;
 			case 'q':
 			case 'Q':
 				return 0;
@@ -490,4 +493,30 @@ void SelectAll()
 			return 0;
 	}
 	
+}
+
+void SortByID()
+{
+	//지금은 ID를 자동으로 생성중이기 때문에 정렬할필요없이 ID가 0이 아닌 녀석만 출력해주면 된다.
+	char ch;
+	system("cls");
+	for (int i = 0; i < OBJMAX; i++)
+	{
+		if (unit[i].ID != 0)
+		{
+			printf("ID: %d\n", unit[i].ID);
+			printf("NAME: %s\n", unit[i].Name);
+			printf("TYPE: %d\n", unit[i].Type);
+			printf("HP: %d\n", unit[i].HP);
+			printf("MP: %d\n", unit[i].MP);
+			printf("(x,y): %d %d\n", unit[i].x, unit[i].y);
+			printf("\n");
+		}
+	}
+	while (1)
+	{
+		printf("Press Enter...");
+		if ((ch = _getch()) == 13)
+			return 0;
+	}
 }
